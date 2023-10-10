@@ -1,0 +1,39 @@
+{
+  "contacts": [
+    {
+      "id": 1,
+      "firstName": "Yahya",
+      "lastName": "Dahir",
+      "email": "yahya.dahir@student.moringaschool",
+      "phoneNumber": "254768300080"
+    },
+    {
+      "id": 2,
+      "firstName": "Ali",
+      "lastName": "Ahmed",
+      "email": "ali.ahmed@student.moringaschool",
+      "phoneNumber": "2547683080"
+    },
+    {
+      "id": 3,
+      "firstName": "Mohamed",
+      "lastName": "Yussuf",
+      "email": "mohamed.yussuf@student.moringaschool",
+      "phoneNumber": "25476769080"
+    },
+    {
+      "id": 4,
+      "firstName": "Mahir",
+      "lastName": "Jama",
+      "email": "mahir.jama@student.moringaschool",
+      "phoneNumber": "254768304388"
+    },
+    {
+      "firstName": "Jama",
+      "lastName": "Gedi",
+      "email": "hello@gedi.com",
+      "phoneNumber": "785697598",
+      "id": 5
+    }
+  ]
+}
