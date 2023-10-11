@@ -1,13 +1,18 @@
+// Adding event listener to window to load content to DOM
 document.addEventListener("DOMContentLoaded", () => {});
 
+// Add new contact button $ search input
 const searchInput = document.querySelector("[data-search]");
 const addContact = document.querySelector(".add-contact");
 
+// Adding search and sort functionality
 let searchContact = [];
 
+// Adding event listener to search input
 searchInput.addEventListener("input", (e) => {
   const value = e.target.value.toLowerCase();
 
+  // Creating search $ sort functionality
   searchContact.forEach((contact) => {
     if (
       contact.firstName.toLowerCase().includes(value) ||
@@ -20,8 +25,12 @@ searchInput.addEventListener("input", (e) => {
   });
 });
 
+// Adding new contact in the application
 const addNewContact = () => {
+  // Getting the ul from html
   const newContact = document.querySelector(".new-contact");
+
+  // Creating new list
   const newCard = document.createElement("li");
   newCard.className = "new-contact-card";
   newCard.innerHTML = `
@@ -33,18 +42,26 @@ const addNewContact = () => {
   <button class="save-contact">Save</button>
   <button class="go-back">Back</button>
     `;
+
+  // Appending the elements into the DOM
   newContact.appendChild(newCard);
+
+  // Getting the values from adding new content card
   document.querySelector(".save-contact").addEventListener("click", () => {
     const firstNameVal = document.querySelector(".firstname-input").value;
     const lastNameVal = document.querySelector(".lastname-input").value;
     const numberVal = document.querySelector(".number-input").value;
     const emailVal = document.querySelector(".email-input").value;
+
+    // Assigning the new data from the inputs
     let newData = {
       firstName: firstNameVal,
       lastName: lastNameVal,
       email: emailVal,
       phoneNumber: numberVal,
     };
+
+    // Avoiding submission of empty inputs
     if (firstNameVal || lastNameVal || numberVal || emailVal === "") {
       alert("Please fill in all the input fields");
     } else {
@@ -52,41 +69,34 @@ const addNewContact = () => {
     }
   });
 
+  // The go back button
   const goBack = document.querySelector(".go-back");
   goBack.addEventListener("click", () => {
     location.reload();
   });
 };
 
-const addContacts = (newData) => {
-  fetch("http://localhost:3000/contacts", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(newData),
-  })
-    .then((res) => res.json())
-    .then((data) => console.log(data));
-};
-
-let nameField = document.querySelector(".name-input-field");
-let numberField = document.querySelector(".number-input-field");
-let emailField = document.querySelector(".email-input-field");
-
+// Rendering the json data to DOM
 const fetchContacts = () => {
+  // Getting the ul to render the data DOM from html
   const contactList = document.querySelector(".contact-list");
   const contactDetails = document.querySelector(".contact-details");
+
+  // Fetching data from json file
   fetch("http://localhost:3000/contacts")
     .then((res) => res.json())
     .then(
       (data) =>
         (searchContact = data.map((contact) => {
+          // Creating the card list to render data from json
           const card = document.createElement("li");
           card.className = "card";
           card.innerHTML = `
         <h4>${contact.firstName} ${contact.lastName}</h4>
         `;
+
+          // Adding event listener to card to see more details of
+          // the contact name
           card.addEventListener("click", () => {
             contactList.style.display = "none";
             const cardDetails = document.createElement("li");
@@ -99,8 +109,11 @@ const fetchContacts = () => {
           <button class="delete-contact">Delete</button>
           <button class="go-back">Back</button>
           `;
+
+            // Rendering the data from json to DOM
             contactDetails.appendChild(cardDetails);
 
+            // Adding event listener to delete button
             const deleteContact = document.querySelector(".delete-contact");
             deleteContact.addEventListener("click", () => {
               cardDetails.remove();
@@ -110,12 +123,17 @@ const fetchContacts = () => {
               console.log("Delete button");
             });
 
+            // Adding event listener to go back button
             const goBack = document.querySelector(".go-back");
             goBack.addEventListener("click", () => {
               location.reload();
             });
           });
+
+          // Rendering the contact details to DOM
           contactList.appendChild(card);
+
+          // Adding the search $ sort functionality to search input
           return {
             firstName: contact.firstName,
             lastName: contact.lastName,
@@ -123,14 +141,31 @@ const fetchContacts = () => {
           };
         }))
     );
+
+  // Adding event listener to add new contact button
   addContact.addEventListener("click", () => {
     contactList.style.display = "none";
     addNewContact();
   });
 };
 
+// Calling the fech function to render values to DOM
 fetchContacts();
 
+// Putting the values from the input to the json file
+const addContacts = (newData) => {
+  fetch("http://localhost:3000/contacts", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(newData),
+  })
+    .then((res) => res.json())
+    .then((data) => console.log(data));
+};
+
+// Delete function
 const deleteContacts = (id) => {
   fetch(`http://localhost:3000/contacts/${id}`, {
     method: "DELETE",
