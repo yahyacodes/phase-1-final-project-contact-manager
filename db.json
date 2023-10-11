@@ -2,38 +2,73 @@
   "contacts": [
     {
       "id": 1,
-      "firstName": "Yahya",
-      "lastName": "Dahir",
-      "email": "yahya.dahir@student.moringaschool",
-      "phoneNumber": "254768300080"
+      "firstName": "Kalonzo",
+      "lastName": "Faulu",
+      "email": "faulu.kalonzo@student.moringaschool",
+      "phoneNumber": "42975584232"
     },
     {
-      "id": 2,
-      "firstName": "Ali",
-      "lastName": "Ahmed",
-      "email": "ali.ahmed@student.moringaschool",
-      "phoneNumber": "2547683080"
+      "firstName": "Smith",
+      "lastName": "Adam",
+      "email": "adam@smith.com",
+      "phoneNumber": "0376046517",
+      "id": 2
     },
     {
       "id": 3,
-      "firstName": "Mohamed",
-      "lastName": "Yussuf",
-      "email": "mohamed.yussuf@student.moringaschool",
-      "phoneNumber": "25476769080"
+      "firstName": "Yu",
+      "lastName": "Kim",
+      "email": "yu.kim@student.moringaschool",
+      "phoneNumber": "0462568879"
     },
     {
-      "id": 4,
-      "firstName": "Mahir",
-      "lastName": "Jama",
-      "email": "mahir.jama@student.moringaschool",
-      "phoneNumber": "254768304388"
-    },
-    {
-      "firstName": "Jama",
-      "lastName": "Gedi",
-      "email": "hello@gedi.com",
+      "firstName": "Michael",
+      "lastName": "Hall",
+      "email": "michealhall@rhyta.com",
       "phoneNumber": "785697598",
-      "id": 5
+      "id": 4
+    },
+    {
+      "id": 5,
+      "firstName": "Frank",
+      "lastName": "Krueger",
+      "email": "frankkrueger@rhyta.com",
+      "phoneNumber": "9022525161"
+    },
+    {
+      "firstName": "Saif",
+      "lastName": "Abboud",
+      "email": "saifabboud@teleworm.us",
+      "phoneNumber": "3366389349",
+      "id": 6
+    },
+    {
+      "id": 7,
+      "firstName": "Tomica",
+      "lastName": "Tomica Lučić",
+      "email": "tomicalucic@rhyta.com",
+      "phoneNumber": "2195257110"
+    },
+    {
+      "firstName": "Liam",
+      "lastName": "Holt",
+      "email": "liamholt@rhyta.com",
+      "phoneNumber": "2486705983",
+      "id": 8
+    },
+    {
+      "id": 9,
+      "firstName": "Amadej",
+      "lastName": "Kwiatkowski",
+      "email": "amadejkwiatkowski@rhyta.com",
+      "phoneNumber": "8179079414"
+    },
+    {
+      "firstName": "Vicky",
+      "lastName": "Sauceda",
+      "email": "vickysauceda@dayrep.com",
+      "phoneNumber": "660676504",
+      "id": 10
     }
   ]
 }
