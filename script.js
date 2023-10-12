@@ -82,6 +82,49 @@ const addNewContact = () => {
   });
 };
 
+// Edit contact
+const updateContact = (contact) => {
+  const contactUpdate = document.querySelector(".contact-update");
+  const contactCard = document.createElement("li");
+  contactCard.className = "contact-card";
+  contactCard.innerHTML = `
+  <input type="text" class='update-firstname-input' placeholder="First Name" value='${contact.firstName}'/>
+  <input type="text" class='update-lastname-input' placeholder="Last Name" value='${contact.lastName}'/>
+  <input type="number" class='update-number-input' placeholder="Number" value='${contact.phoneNumber}'/>
+  <input type="email" class='update-email-input' placeholder="Email" value='${contact.email}'/>
+  <br/>
+  <button class="save-update-contact">Update</button>
+  `;
+  contactUpdate.appendChild(contactCard);
+
+  // Getting the values from adding new content card
+  document
+    .querySelector(".save-update-contact")
+    .addEventListener("click", () => {
+      const firstNameInputVal = document.querySelector(
+        ".update-firstname-input"
+      ).value;
+      const lastNameInputVal = document.querySelector(
+        ".update-lastname-input"
+      ).value;
+      const numberInputVal = document.querySelector(
+        ".update-number-input"
+      ).value;
+      const emailInputVal = document.querySelector(".update-email-input").value;
+
+      // Assigning the updated data from the inputs
+      let updateData = {
+        firstName: firstNameInputVal,
+        lastName: lastNameInputVal,
+        email: emailInputVal,
+        phoneNumber: numberInputVal,
+        id: contact.id,
+      };
+      updateExistingContacts(updateData);
+      location.reload();
+    });
+};
+
 // Rendering the json data to DOM
 const fetchContacts = () => {
   // Getting the ul to render the data DOM from html
@@ -119,6 +162,13 @@ const fetchContacts = () => {
             // Rendering the data from json to DOM
             contactDetails.appendChild(cardDetails);
 
+            // Adding event listener to edit button
+            const editContact = document.querySelector(".edit-contact");
+            editContact.addEventListener("click", () => {
+              contactDetails.style.display = "none";
+              updateContact(contact);
+            });
+
             // Adding event listener to delete button
             const deleteContact = document.querySelector(".delete-contact");
             deleteContact.addEventListener("click", () => {
@@ -126,7 +176,6 @@ const fetchContacts = () => {
               location.reload();
               contactList.style.display = "block";
               deleteContacts(contact.id);
-              console.log("Delete button");
             });
 
             // Adding event listener to go back button
@@ -168,7 +217,7 @@ const addContacts = (newData) => {
     body: JSON.stringify(newData),
   })
     .then((res) => res.json())
-    .then((data) => console.log(data));
+    .then((data) => data);
 };
 
 // Delete function
@@ -180,5 +229,18 @@ const deleteContacts = (id) => {
     },
   })
     .then((res) => res.json())
-    .then((data) => console.log(data));
+    .then((data) => data);
+};
+
+// update function
+const updateExistingContacts = (contact) => {
+  fetch(`http://localhost:3000/contacts/${contact.id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(contact),
+  })
+    .then((res) => res.json())
+    .then((data) => data);
 };

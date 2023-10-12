@@ -1,25 +1,18 @@
 {
   "contacts": [
     {
-      "id": 1,
-      "firstName": "Kalonzo",
-      "lastName": "Faulu",
-      "email": "faulu.kalonzo@student.moringaschool",
-      "phoneNumber": "42975584232"
-    },
-    {
       "firstName": "Smith",
-      "lastName": "Adam",
+      "lastName": "Collins",
       "email": "adam@smith.com",
       "phoneNumber": "0376046517",
       "id": 2
     },
     {
-      "id": 3,
-      "firstName": "Yu",
+      "firstName": "Young",
       "lastName": "Kim",
       "email": "yu.kim@student.moringaschool",
-      "phoneNumber": "0462568879"
+      "phoneNumber": "0462568879",
+      "id": 3
     },
     {
       "firstName": "Michael",
@@ -76,6 +69,20 @@
       "email": "francis@kipchumba.com",
       "phoneNumber": "765876945",
       "id": 11
+    },
+    {
+      "firstName": "Yahya",
+      "lastName": "Dahir",
+      "email": "yahya@google.com",
+      "phoneNumber": "76688669",
+      "id": 12
+    },
+    {
+      "firstName": "Osman",
+      "lastName": "Gedi",
+      "email": "osman@gedi.com",
+      "phoneNumber": "7857698567",
+      "id": 13
     }
   ]
 }

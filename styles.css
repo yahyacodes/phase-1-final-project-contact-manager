@@ -25,7 +25,8 @@ body {
 
 .contact-list,
 .new-contact,
-.contact-details li {
+.contact-details,
+.contact-update li {
   list-style: none;
   margin-left: -20px;
 }
@@ -41,7 +42,11 @@ body {
 .firstname-input,
 .lastname-input,
 .number-input,
-.email-input {
+.email-input,
+.update-firstname-input,
+.update-lastname-input,
+.update-email-input,
+.update-number-input {
   width: 70%;
   height: 10px;
   border-radius: 5px;
@@ -63,7 +68,8 @@ body {
 }
 
 .save-contact,
-.edit-contact {
+.edit-contact,
+.save-update-contact {
   width: 18%;
   height: 30px;
   border-radius: 5px;
