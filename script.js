@@ -62,10 +62,16 @@ const addNewContact = () => {
     };
 
     // Avoiding submission of empty inputs
-    if (firstNameVal || lastNameVal || numberVal || emailVal === "") {
+    if (
+      firstNameVal === "" ||
+      lastNameVal === "" ||
+      numberVal === "" ||
+      emailVal === ""
+    ) {
       alert("Please fill in all the input fields");
     } else {
       addContacts(newData);
+      location.reload();
     }
   });
 
